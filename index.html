@@ -1,0 +1,118 @@
+<!DOCTYPE html><html><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1"><title>Vant Medic</title><style>body {
+      padding: 0;
+      margin: 0
+    }
+
+    #h-lb {
+      width: 100%;
+      height: 100%;
+      position: fixed;
+      text-align: center;
+      background-color: #00D3C2;
+    }
+
+    #h-con {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate3d(-50%, -50%, 0);
+      transform: translate3d(-50%, -50%, 0);
+    }
+
+    #h-con .l-s {
+      position: static;
+      width: 60px;
+      height: 60px;
+      -webkit-transform: scale(0.7);
+      transform: scale(0.7);
+      -webkit-animation: l-2-s 1s ease alternate infinite;
+      animation: l-2-s 1s ease alternate infinite;
+    }
+
+    #h-con .l-c {
+      width: 8px;
+      height: 8px;
+      background: #ffffff;
+      border-radius: 50%;
+      position: absolute;
+      left: calc(50% - 4px);
+      top: calc(50% - 4px);
+      -webkit-transition: all 1s ease;
+      transition: all 1s ease;
+      -webkit-animation: l-2-c 1s ease-in-out alternate infinite;
+      animation: l-2-c 1s ease-in-out alternate infinite;
+    }
+
+    @-webkit-keyframes l-2-c {
+      0% {
+        box-shadow: 0 0 0 #ffffff;
+        opacity: 1;
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+      }
+      50% {
+        box-shadow: 24px -22px #ffffff, 30px -15px 0 -3px #ffffff, 31px 0 #ffffff, 29px 9px 0 -3px #ffffff,
+        24px 23px #ffffff, 17px 30px 0 -3px #ffffff, 0 33px #ffffff, -10px 28px 0 -3px #ffffff,
+        -24px 22px #ffffff, -29px 14px 0 -3px #ffffff, -31px -3px #ffffff, -30px -11px 0 -3px #ffffff,
+        -20px -25px #ffffff, -12px -30px 0 -3px #ffffff, 5px -29px #ffffff, 13px -25px 0 -3px #ffffff;
+        -webkit-transform: rotate(180deg);
+        transform: rotate(180deg);
+      }
+      100% {
+        opacity: 0;
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+        box-shadow: 25px -22px #ffffff, 15px -22px 0 -3px black, 31px 2px #ffffff, 21px 2px 0 -3px black,
+        23px 25px #ffffff, 13px 25px 0 -3px black, 0 33px #ffffff, -10px 33px 0 -3px black,
+        -26px 24px #ffffff, -19px 17px 0 -3px black, -32px 0 #ffffff, -23px 0 0 -3px black,
+        -25px -23px #ffffff, -16px -23px 0 -3px black, 0 -31px #ffffff, -2px -23px 0 -3px black;
+      }
+    }
+
+    @keyframes l-2-c {
+      0% {
+        box-shadow: 0 0 0 #ffffff;
+        opacity: 1;
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+      }
+      50% {
+        box-shadow: 24px -22px #ffffff, 30px -15px 0 -3px #ffffff, 31px 0 #ffffff, 29px 9px 0 -3px #ffffff,
+        24px 23px #ffffff, 17px 30px 0 -3px #ffffff, 0 33px #ffffff, -10px 28px 0 -3px #ffffff,
+        -24px 22px #ffffff, -29px 14px 0 -3px #ffffff, -31px -3px #ffffff, -30px -11px 0 -3px #ffffff,
+        -20px -25px #ffffff, -12px -30px 0 -3px #ffffff, 5px -29px #ffffff, 13px -25px 0 -3px #ffffff;
+        -webkit-transform: rotate(180deg);
+        transform: rotate(180deg);
+      }
+      100% {
+        opacity: 0;
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+        box-shadow: 25px -22px #ffffff, 15px -22px 0 -3px black, 31px 2px #ffffff, 21px 2px 0 -3px black,
+        23px 25px #ffffff, 13px 25px 0 -3px black, 0 33px #ffffff, -10px 33px 0 -3px black, -26px 24px #ffffff,
+        -19px 17px 0 -3px black, -32px 0 #ffffff, -23px 0 0 -3px black, -25px -23px #ffffff,
+        -16px -23px 0 -3px black, 0 -31px #ffffff, -2px -23px 0 -3px black;
+      }
+    }
+
+    @-webkit-keyframes l-2-s {
+      0% {
+        -webkit-transform: scale(0) rotate(0deg);
+        transform: scale(0) rotate(0deg);
+      }
+      100% {
+        -webkit-transform: scale(0.7) rotate(360deg);
+        transform: scale(0.7) rotate(360deg);
+      }
+    }
+
+    @keyframes l-2-s {
+      0% {
+        -webkit-transform: scale(0) rotate(0deg);
+        transform: scale(0) rotate(0deg);
+      }
+      100% {
+        -webkit-transform: scale(0.7) rotate(360deg);
+        transform: scale(0.7) rotate(360deg);
+      }
+    }</style><link rel="shortcut icon" href=./favicon.ico><link href=./static/css/app.f14a4100bc6ba2ac3f26c3abe59c0649.css rel=stylesheet></head><body><div id=app><div id=h-lb><div id=h-con><svg class=l-s xmlns=http://www.w3.org/2000/svg version=1.1><polygon points="29.8 0.3 22.8 21.8 0 21.8 18.5 35.2 11.5 56.7 29.8 43.4 48.2 56.7 41.2 35.1 59.6 21.8 36.8 21.8 " fill=#ffffff></polygon></svg><div class=l-c></div></div></div></div><script type=text/javascript src=./static/js/manifest.80e60cb7421203b3e12c.js></script><script type=text/javascript src=./static/js/vendor.4970431e49712fff27be.js></script><script type=text/javascript src=./static/js/app.ba6efccd5be884278439.js></script></body></html>
