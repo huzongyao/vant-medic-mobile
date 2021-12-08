@@ -2,12 +2,16 @@
   <div id="app">
     <!--缓存的页面-->
     <keep-alive>
-      <router-view v-if="$route.meta.keepAlive">
-      </router-view>
+      <transition v-if="$route.meta.keepAlive" name="van-fade">
+        <router-view>
+        </router-view>
+      </transition>
     </keep-alive>
-    <!--不缓存的页面-->
-    <router-view v-if="!$route.meta.keepAlive">
-    </router-view>
+    <transition v-if="!$route.meta.keepAlive" name="van-fade">
+      <!--不缓存的页面-->
+      <router-view>
+      </router-view>
+    </transition>
   </div>
 </template>
 
