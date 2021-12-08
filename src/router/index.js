@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router';
 import {Toast} from 'mand-mobile'
+import 'mand-mobile/lib/mand-mobile.css'
 
 import SplashPage from '../view/splash/SplashPage';
 import MainPage from '../view/main/MainPage';
@@ -26,6 +27,7 @@ const _d = () => {
 
 const FactoryMain = r => _s() && require.ensure([], () => _d() && r(require('../view/factory/FactoryMain')), 'FactoryMain');
 const GuidePage = r => _s() && require.ensure([], () => _d() && r(require('../view/splash/GuidePage')), 'GuidePage');
+const MessageDetail = r => _s() && require.ensure([], () => _d() && r(require('../view/message/MessageDetail')), 'MessageDetail');
 
 const routes = [
   {path: '*', redirect: 'SplashPage'},
@@ -39,6 +41,7 @@ const routes = [
       {name: 'mine', path: 'mine', component: TabMine, meta: {keepAlive: true}},
     ], meta: {keepAlive: true}
   },
+  {name: 'MessageDetail', component: MessageDetail},
   {name: 'GuidePage', component: GuidePage},
   {name: 'FactoryMain', component: FactoryMain},
 ];

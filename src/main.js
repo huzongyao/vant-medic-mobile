@@ -1,6 +1,5 @@
 import Vue from 'vue';
-import Vant from 'vant';
-import {Lazyload} from 'vant';
+import Vant, {Lazyload} from 'vant';
 import VueClipboards from 'vue-clipboards';
 import ScrollPosition from 'vue-keep-scroll-position'
 
@@ -16,6 +15,7 @@ import router from './router';
 import store from './vuex';
 import stream from './http';
 import urls from './http/urls';
+import mock from './mock';
 
 Vue.use(Vant);
 Vue.use(Lazyload);
@@ -25,6 +25,7 @@ Vue.mixin(VueMixin);
 
 Vue.prototype.$http = stream;
 Vue.prototype.$urls = urls;
+Vue.prototype.$mock = mock;
 
 new Vue({
   i18n,

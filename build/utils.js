@@ -51,6 +51,10 @@ exports.cssLoaders = function (options) {
     less: generateLoaders('less', {
       "modifyVars": {
         "@blue": "#00D3C2",
+        '@nav-bar-background-color': '@blue',
+        '@nav-bar-title-text-color': 'white',
+        '@nav-bar-icon-color': 'white',
+        '@nav-bar-arrow-size': '28px',
       }
     }),
     stylus: generateLoaders('stylus'),
