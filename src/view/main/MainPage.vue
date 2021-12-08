@@ -11,9 +11,11 @@
     <!--下方的TabBar-->
     <van-tabbar v-model="tabBarSelect">
       <!--TabBar项目-->
-      <van-tabbar-item v-for="(item, i) in tabItemList" :key="i" :to="item.to" replace>
-        <div class="tab-txt">{{$t(item.name)}}</div>
-        <img :src="getTabIconSrc(item, props.active)" slot="icon" slot-scope="props" class="icon-img"/>
+      <van-tabbar-item v-for="(it, i) in tabItemList" :key="i" :to="it.to" replace>
+        <div class="tab-txt">{{$t(it.name)}}</div>
+        <van-icon :name="getTabIconSrc(it, props.active)" :badge="getBadgeTxt(it, i)"
+                  slot="icon" slot-scope="props" class="icon-img">
+        </van-icon>
       </van-tabbar-item>
     </van-tabbar>
   </div>
@@ -28,11 +30,18 @@
       }
     },
     computed: {
+      getBadgeTxt() {
+        return (it, idx) => {
+          if (idx == 2) {
+            return 21;
+          }
+        }
+      },
       // 获取图标资源
       getTabIconSrc() {
         return (item, active) => {
           let img = active ? item.active : item.normal;
-          return 'static/img/main/' + img;
+          return 'static/img/tabs/' + img;
         }
       },
     },
@@ -42,16 +51,28 @@
         // Tab栏数据
         tabItemList: [
           {
-            active: 'main_tab_3.png',
-            normal: 'main_tab_2.png',
+            active: 'ic_tab_register_press.png',
+            normal: 'ic_tab_register_normal.png',
             name: 'tab_home',
             to: "home"
           },
           {
-            active: 'main_tab_5.png',
-            normal: 'main_tab_4.png',
-            name: 'tab_products',
+            active: 'ic_tab_consult_press.png',
+            normal: 'ic_tab_consult_normal.png',
+            name: 'tab_doctor',
             to: "doctor"
+          },
+          {
+            active: 'ic_tab_message_press.png',
+            normal: 'ic_tab_message_normal.png',
+            name: 'tab_message',
+            to: "message"
+          },
+          {
+            active: 'ic_tab_mine_press.png',
+            normal: 'ic_tab_mine_normal.png',
+            name: 'tab_mine',
+            to: "mine"
           },
         ],
       };
@@ -88,6 +109,5 @@
 
   .icon-img {
     margin-bottom: -1px;
-    height: 25px;
   }
 </style>

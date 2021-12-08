@@ -2,9 +2,12 @@ import Vue from 'vue'
 import VueRouter from 'vue-router';
 import {Toast} from 'mand-mobile'
 
+import SplashPage from '../view/splash/SplashPage';
 import MainPage from '../view/main/MainPage';
 import TabHome from '../view/main/tab/TabHome';
 import TabDoctor from '../view/main/tab/TabDoctor';
+import TabMessage from '../view/main/tab/TabMessage';
+import TabMine from '../view/main/tab/TabMine';
 
 Vue.use(VueRouter);
 
@@ -22,16 +25,21 @@ const _d = () => {
 };
 
 const FactoryMain = r => _s() && require.ensure([], () => _d() && r(require('../view/factory/FactoryMain')), 'FactoryMain');
+const GuidePage = r => _s() && require.ensure([], () => _d() && r(require('../view/splash/GuidePage')), 'GuidePage');
 
 const routes = [
-  {path: '*', redirect: '/main'},
+  {path: '*', redirect: 'SplashPage'},
+  {name: 'SplashPage', component: SplashPage},
   {
     name: 'main', redirect: '/main/home', component: MainPage,
     children: [
       {name: 'home', path: 'home', component: TabHome, meta: {keepAlive: true}},
       {name: 'doctor', path: 'doctor', component: TabDoctor, meta: {keepAlive: true}},
+      {name: 'message', path: 'message', component: TabMessage, meta: {keepAlive: true}},
+      {name: 'mine', path: 'mine', component: TabMine, meta: {keepAlive: true}},
     ], meta: {keepAlive: true}
   },
+  {name: 'GuidePage', component: GuidePage},
   {name: 'FactoryMain', component: FactoryMain},
 ];
 

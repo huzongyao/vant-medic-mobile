@@ -4,7 +4,11 @@
  * @type {*[]}
  */
 const AppString = {
-  'tab_mine': ['我的', 'Mine'],
+  'app_name': ['160', '160'],
+  'tab_home': ['首页', 'HOME'],
+  'tab_doctor': ['问医生', 'DOCTOR'],
+  'tab_message': ['消息', 'MAIL'],
+  'tab_mine': ['我的', 'MINE'],
   'settings': ['设置', 'Settings'],
   'version': ['版本', 'Version'],
   'language': ['语言', 'Language'],
