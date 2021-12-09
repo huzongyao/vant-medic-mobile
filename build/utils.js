@@ -55,6 +55,7 @@ exports.cssLoaders = function (options) {
         '@nav-bar-title-text-color': 'white',
         '@nav-bar-icon-color': 'white',
         '@nav-bar-arrow-size': '28px',
+        '@grid-item-content-padding': '0',
       }
     }),
     stylus: generateLoaders('stylus'),

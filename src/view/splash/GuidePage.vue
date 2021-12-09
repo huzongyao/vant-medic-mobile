@@ -22,6 +22,7 @@
     methods: {
       onImageClick(idx) {
         if (idx == this.guideImgs.length - 1) {
+          localStorage.setItem('guideShown', '1');
           this._routeReplace('main');
         }
       }
