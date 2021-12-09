@@ -1,0 +1,17 @@
+image: node
+
+pages:
+  cache:
+    paths:
+      - node_modules/
+  script:
+    - npm install
+    - npm run build
+    - mkdir public/ || true
+    - rm -rf public/*
+    - mv dist/* public/
+  artifacts:
+    paths:
+      - public
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
