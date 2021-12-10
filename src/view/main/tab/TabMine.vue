@@ -8,11 +8,11 @@
         <van-image src="static/img/mine/icon-user-def.png" round class="user-icon"></van-image>
         <div class="flex1 user-text">
           <div class="name-line">
-            <div>小麦姐</div>
+            <div class="user-name">{{this.userInfo.name}}</div>
             <van-image src="static/img/mine/user_type_normal.png" class="user-type"></van-image>
           </div>
-          <div>6年用户</div>
-          <div>关注2</div>
+          <div class="user-time">6年用户 广东 深圳</div>
+          <div class="user-fans">关注2 粉丝6</div>
         </div>
         <div class="self-page">
           个人主页
@@ -37,8 +37,7 @@
     <div class="space-con">
       <div class="mine-card">
         <div>我的订单</div>
-        <div>
-        </div>
+
       </div>
     </div>
   </div>
@@ -54,6 +53,11 @@
           {name: '卡券(张)', txt: '0'},
           {name: '积分', txt: '674'},
         ]
+      }
+    },
+    activated() {
+      if (!this._isLogin()) {
+        this._routeReplace('PhoneLogin');
       }
     },
     mounted() {
@@ -106,7 +110,23 @@
     }
     .info-line {
       .user-text {
+        .user-fans {
+          font-size: 13px;
+          margin-top: 4px;
+          color: #666;
+        }
+        .user-time {
+          font-size: 14px;
+          margin-top: 4px;
+          color: #666;
+        }
         .name-line {
+          .user-name {
+            color: #333;
+            font-size: 20px;
+            font-weight: bold;
+            padding-right: 4px;
+          }
           .user-type {
             width: 50px;
             height: 22px;

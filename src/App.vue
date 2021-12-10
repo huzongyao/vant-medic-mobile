@@ -19,6 +19,7 @@
   export default {
     name: "app",
     mounted() {
+      this._loadUserInfo();
     },
     methods: {},
   }

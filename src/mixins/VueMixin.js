@@ -7,6 +7,23 @@ export default {
   },
 
   methods: {
+    _saveUserInfo() {
+      this._saveLSObject('userInfo', this.userInfo);
+    },
+
+    _loadUserInfo() {
+      let ui = this._loadLSObject('userInfo') || {};
+      this.$store.commit('setUserInfo', ui);
+    },
+
+    _isLogin() {
+      if (!(this.userInfo && this.userInfo.name)) {
+        this._loadUserInfo();
+        return !!(this.userInfo && this.userInfo.name);
+      }
+      return true;
+    },
+
     _showAlert(msg, confirm) {
       Dialog.alert({
         message: msg,
@@ -84,17 +101,26 @@ export default {
       Toast.clear();
     },
 
-    // 将base64文件转换为二进制
-    _dataURLtoBlob(dataUrl) {
-      let arr = dataUrl.split(',');
-      let mime = arr[0].match(/:(.*?);/)[1];
-      let bstr = atob(arr[1]);
-      let n = bstr.length;
-      let u8arr = new Uint8Array(n);
-      while (n--) {
-        u8arr[n] = bstr.charCodeAt(n);
+    _saveLSObject(key, object) {
+      if (key && object) {
+        try {
+          let jsonStr = JSON.stringify(object);
+          localStorage.setItem(key, jsonStr);
+        } catch (e) {
+        }
       }
-      return new Blob([u8arr], {type: mime});
+    },
+
+    // 从localstorage 加载object
+    _loadLSObject(key) {
+      if (key) {
+        try {
+          let jsonStr = localStorage.getItem(key);
+          return JSON.parse(jsonStr);
+        } catch (e) {
+        }
+      }
+      return null;
     },
   }
 }

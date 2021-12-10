@@ -45,6 +45,11 @@
         ],
       }
     },
+    activated() {
+      if (!this._isLogin()) {
+        this._routeReplace('PhoneLogin');
+      }
+    },
     mounted() {
     },
     methods: {
