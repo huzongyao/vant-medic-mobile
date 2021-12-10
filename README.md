@@ -7,9 +7,13 @@
 #### 效果如下
 
 #### 开始体验
-* 体验地址：https://huzongyao.github.io/vant-medic-mobile
-* 扫码体验：</br>
-![image](https://huzongyao.github.io/vant-medic-mobile/static/img/mine/project_qr.png)
+* 体验地址GitHub：https://huzongyao.github.io/vant-medic-mobile
+* 体验地址GitLab：https://dayao.gitlab.io/vant-medic-mobile
+* 扫码体验：
+| GitHub | GitLab |
+| :----: |:----:|
+| ![image](https://huzongyao.github.io/vant-medic-mobile/static/img/mine/qr_github.png =x250)|![image](https://huzongyao.github.io/vant-medic-mobile/static/img/mine/qr_gitlab.png =x250)|
+
 
 #### 涉及类库
 记录和学习一些使用Vue来快速开发移动端HTML5页面的知识，主要包含：
