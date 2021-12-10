@@ -37,8 +37,21 @@
     <div class="space-con">
       <div class="mine-card">
         <div>我的订单</div>
-
       </div>
+    </div>
+    <div class="align-center sugg-all">
+      <div class="suggest-tit">为您推荐</div>
+      <van-row>
+        <van-col span="12" v-for="(it,idx) in suggestData" :key="idx" class="sugg-box">
+          <div class="sugg-card click-box">
+            <van-image :src="`static/img/mine/suggest/${it.img}`" radius="4px 4px 0 0"></van-image>
+            <div class="sugg-foot">
+              <div class="sugg-text">{{it.txt}}</div>
+              <div class="sugg-price">¥{{it.price}}<span class="sugg-old">¥{{it.old}}</span></div>
+            </div>
+          </div>
+        </van-col>
+      </van-row>
     </div>
   </div>
 </template>
@@ -48,6 +61,20 @@
     name: "tab-mine",
     data() {
       return {
+        suggestData: [
+          {img: 'suggest_img_1.jpg', txt: '【三甲名医义诊】长期失眠...', old: '300.0', price: '0.0'},
+          {img: 'suggest_img_2.jpg', txt: '【青少年福利】眼部健康检查（视力检查）', old: '300.0', price: '288.0'},
+          {img: 'suggest_img_3.jpg', txt: '【深圳和美妇儿科医院线下免费义诊】', old: '300.0', price: '99.0'},
+          {img: 'suggest_img_4.jpg', txt: '【三甲名医义诊】长期失眠...', old: '300.0', price: '79999.0'},
+          {img: 'suggest_img_5.jpg', txt: '【三甲名医义诊】长期失眠...', old: '300.0', price: '30.0'},
+          {img: 'suggest_img_6.jpg', txt: '【三甲名医义诊】长期失眠...', old: '300.0', price: '40.0'},
+          {img: 'suggest_img_7.jpg', txt: '【三甲名医义诊】长期失眠...', old: '300.0', price: '50.0'},
+          {img: 'suggest_img_8.jpg', txt: '【三甲名医义诊】长期失眠...', old: '300.0', price: '60.0'},
+          {img: 'suggest_img_9.jpg', txt: '【三甲名医义诊】长期失眠...', old: '300.0', price: '40.0'},
+          {img: 'suggest_img_10.jpg', txt: '【三甲名医义诊】长期失眠...', old: '300.0', price: '30.0'},
+          {img: 'suggest_img_11.jpg', txt: '【三甲名医义诊】长期失眠...', old: '300.0', price: '20.0'},
+          {img: 'suggest_img_12.jpg', txt: '【三甲名医义诊】长期失眠...', old: '300.0', price: '8880.0'},
+        ],
         walletData: [
           {name: '余额(元)', txt: '0'},
           {name: '卡券(张)', txt: '0'},
@@ -67,6 +94,45 @@
 </script>
 
 <style scoped lang="less">
+  .sugg-all {
+    .sugg-box {
+      .sugg-card {
+        .sugg-foot {
+          padding: 10px;
+        }
+        .sugg-old {
+          text-decoration: line-through;
+          color: #999;
+          font-size: 14px;
+          padding-left: 8px;
+        }
+        .sugg-price {
+          color: #FF6000;
+          font-weight: bold;
+          margin-top: 16px;
+        }
+        .sugg-text {
+          text-overflow: ellipsis;
+          overflow: hidden;
+          font-size: 15px;
+          font-weight: bold;
+          color: #333;
+          white-space: nowrap;
+        }
+        text-align: left;
+        border-radius: 4px;
+      }
+      padding: 6px;
+    }
+    .suggest-tit {
+      padding: 20px 0 10px 0;
+      font-size: 17px;
+      font-weight: bold;
+      color: #333;
+    }
+    padding: 10px 6px;
+  }
+
   .space-con {
     .mine-card {
       padding: 14px;

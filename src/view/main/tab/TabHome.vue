@@ -109,10 +109,13 @@
         swipeAds: [
           {img: 'swipe_ad_1.gif', to: ''},
           {img: 'swipe_ad_2.jpg', to: ''},
-          {img: 'swipe_ad_3.jpg', to: ''},
-          {img: 'swipe_ad_4.png', to: ''},
-          {img: 'swipe_ad_5.jpg', to: ''},
-          {img: 'swipe_ad_6.png', to: ''},
+          // {img: 'swipe_ad_3.jpg', to: ''},
+          // {img: 'swipe_ad_4.png', to: ''},
+          // {img: 'swipe_ad_5.jpg', to: ''},
+          // {img: 'swipe_ad_6.png', to: ''},
+          // {img: 'swipe_ad_7.png', to: ''},
+          {img: 'swipe_ad_8.png', to: ''},
+          {img: 'swipe_ad_9.png', to: ''},
         ],
       }
     },
