@@ -105,7 +105,7 @@
       align-items: center;
       font-size: 16px;
       color: #999999;
-      box-shadow: 0 20px 20px 0 rgb(0 0 0 / 5%);
+      box-shadow: 0 5px 5px rgba(0, 0, 0, 0.06);
     }
     padding: 20px;
     margin-top: -40px;
@@ -132,19 +132,19 @@
     .card-box {
       .card-item {
         .card-ins {
-          font-size: 13.3px;
+          font-size: 2vw;
           color: #999999;
         }
         .card-txt {
           font-weight: bold;
-          font-size: 17px;
+          font-size: 4.3vw;
           color: #333333;
         }
         padding: 12px;
         background: white;
         border-radius: 12px;
         text-align: center;
-        box-shadow: 0 10px 10px 0 rgb(149 202 244 / 15%);
+        box-shadow: 0 5px 5px rgba(0, 0, 0, 0.06);
       }
       padding: 10px 5px;
     }

@@ -11,7 +11,10 @@
             <div class="user-name">{{this.userInfo.name}}</div>
             <van-image src="static/img/mine/user_type_normal.png" class="user-type"></van-image>
           </div>
-          <div class="user-time">6年用户 广东 深圳</div>
+          <div class="user-time">
+            <van-icon name="static/img/mine/user_male.png" size="15px"></van-icon>
+            <div class="time-txt">6年用户 广东 深圳</div>
+          </div>
           <div class="user-fans">关注2 粉丝6</div>
         </div>
         <div class="self-page">
@@ -36,7 +39,13 @@
     <!--下方卡片区域-->
     <div class="space-con">
       <div class="mine-card">
-        <div>我的订单</div>
+        <div class="card-title">我的订单</div>
+        <van-grid :border="false" :column-num="5">
+          <van-grid-item v-for="(it,idx) in orderEntries" :key="idx" class="order-item">
+            <van-icon :name="`static/img/mine/${it.ic}`" size="46px"></van-icon>
+            <div class="order-txt">{{it.txt}}</div>
+          </van-grid-item>
+        </van-grid>
       </div>
     </div>
     <div class="align-center sugg-all">
@@ -61,6 +70,17 @@
     name: "tab-mine",
     data() {
       return {
+        orderEntries: [
+          {ic: 'order_entry_1.png', txt: '挂号', to: ''},
+          {ic: 'order_entry_2.png', txt: '加号', to: ''},
+          {ic: 'order_entry_3.png', txt: '咨询', to: ''},
+          {ic: 'order_entry_4.png', txt: '私人医生', to: ''},
+          {ic: 'order_entry_5.png', txt: '送心意', to: ''},
+          {ic: 'order_entry_6.png', txt: '处方', to: ''},
+          {ic: 'order_entry_7.png', txt: '服务订单', to: ''},
+          {ic: 'order_entry_8.png', txt: '160健康课', to: ''},
+          {ic: 'order_entry_9.png', txt: '询价单', to: ''},
+        ],
         suggestData: [
           {img: 'suggest_img_1.jpg', txt: '【三甲名医义诊】长期失眠...', old: '300.0', price: '0.0'},
           {img: 'suggest_img_2.jpg', txt: '【青少年福利】眼部健康检查（视力检查）', old: '300.0', price: '288.0'},
@@ -94,6 +114,13 @@
 </script>
 
 <style scoped lang="less">
+  .card-title {
+    padding: 13px;
+    font-size: 17.6px;
+    color: #333333;
+    font-weight: bold;
+  }
+
   .sugg-all {
     .sugg-box {
       .sugg-card {
@@ -112,11 +139,11 @@
           margin-top: 16px;
         }
         .sugg-text {
-          text-overflow: ellipsis;
-          overflow: hidden;
           font-size: 15px;
           font-weight: bold;
           color: #333;
+          text-overflow: ellipsis;
+          overflow: hidden;
           white-space: nowrap;
         }
         text-align: left;
@@ -135,7 +162,16 @@
 
   .space-con {
     .mine-card {
-      padding: 14px;
+      .order-item {
+        padding-bottom: 20px;
+      }
+      .order-txt {
+        font-size: 3.6vw;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        color: #333333;
+      }
       background: white;
       border-radius: 8px;
     }
@@ -182,14 +218,19 @@
           color: #666;
         }
         .user-time {
+          .time-txt {
+            padding-left: 8px;
+          }
           font-size: 14px;
           margin-top: 4px;
           color: #666;
+          display: flex;
+          align-items: center;
         }
         .name-line {
           .user-name {
             color: #333;
-            font-size: 20px;
+            font-size: 5vw;
             font-weight: bold;
             padding-right: 4px;
           }
