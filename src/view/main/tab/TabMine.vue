@@ -156,7 +156,7 @@
       padding: 6px;
     }
     .suggest-tit {
-      padding: 20px 0 10px 0;
+      padding-bottom: 10px;
       font-size: 17px;
       font-weight: bold;
       color: #333;
