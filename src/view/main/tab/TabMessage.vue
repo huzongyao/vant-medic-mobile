@@ -4,8 +4,10 @@
     <div class="nav-con">
       <template v-for="it in msgData">
         <div class="msg-item click-box" @click="onMsgItemClick(it)">
-          <van-icon :name="`static/img/message/${it.ic}`" class="msg-icon"
-                    size="50px" :badge="it.num"></van-icon>
+          <van-badge :content="it.num">
+            <van-image :src="`static/img/message/${it.ic}`" class="msg-icon" radius="5px">
+            </van-image>
+          </van-badge>
           <div class="flex1 msg-right">
             <div class="msg-top">
               <div class="flex1 msg-name">{{it.name}}</div>
@@ -64,7 +66,7 @@
   .msg-item {
     .msg-detail {
       margin-top: 8px;
-      font-size: 14px;
+      font-size: 15.4px;
       color: #9b9b9b;
       overflow-x: hidden;
       text-overflow: ellipsis;
@@ -73,12 +75,12 @@
     }
     .time-txt {
       color: #9b9b9b;
-      font-size: 13px;
+      font-size: 13.2px;
       padding-left: 20px;
     }
     .msg-name {
       font-weight: bold;
-      font-size: 16px;
+      font-size: 17.6px;
       color: #333;
       overflow-x: hidden;
       text-overflow: ellipsis;
@@ -91,6 +93,9 @@
       align-items: end;
     }
     .msg-icon {
+      width: 55px;
+      height: 55px;
+      background: #c6c6c6;
     }
     .msg-right {
       padding-left: 14px;

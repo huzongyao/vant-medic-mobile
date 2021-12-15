@@ -114,6 +114,7 @@
   .top-con {
     .top-text {
       align-items: center;
+      font-size: 17.6px;
     }
     .down-arr {
       padding: 0 10px;
@@ -132,12 +133,12 @@
     .card-box {
       .card-item {
         .card-ins {
-          font-size: 2vw;
+          font-size: 13.2px;
           color: #999999;
         }
         .card-txt {
           font-weight: bold;
-          font-size: 4.3vw;
+          font-size: 17.6px;
           color: #333333;
         }
         padding: 12px;
@@ -160,7 +161,7 @@
       align-items: center;
       justify-content: center;
       padding-bottom: 30px;
-      font-size: 14px;
+      font-size: 14.3px;
       color: #666666;
     }
     padding: 0 3vw;

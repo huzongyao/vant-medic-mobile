@@ -9,7 +9,7 @@
     <router-view v-if="!$route.meta.keepAlive" class="main-router-view">
     </router-view>
     <!--下方的TabBar-->
-    <van-tabbar v-model="tabBarSelect">
+    <van-tabbar v-model="tabBarSelect" safe-area-inset-bottom>
       <!--TabBar项目-->
       <van-tabbar-item v-for="(it, i) in tabItemList" :key="i" :to="it.to" replace>
         <div class="tab-txt">{{$t(it.name)}}</div>

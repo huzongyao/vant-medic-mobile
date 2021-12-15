@@ -4,6 +4,7 @@
       <div class="top-bar">
         <van-icon name="setting-o" size="24px"></van-icon>
       </div>
+      <!--个人信息-->
       <div class="info-line">
         <van-image src="static/img/mine/icon-user-def.png" round class="user-icon"></van-image>
         <div class="flex1 user-text">
@@ -22,9 +23,12 @@
           <van-icon name="arrow"/>
         </div>
       </div>
+      <!--钱包-->
       <div class="wallet-line">
         <div v-for="(it,idx) in walletData" :key="idx" class="flex1">
-          <div class="wallet-txt">{{it.txt}}</div>
+          <van-badge :dot="it.dot">
+            <div class="wallet-txt">{{it.txt}}</div>
+          </van-badge>
           <div class="wallet-name">{{it.name}}</div>
         </div>
       </div>
@@ -98,7 +102,7 @@
         walletData: [
           {name: '余额(元)', txt: '0'},
           {name: '卡券(张)', txt: '0'},
-          {name: '积分', txt: '674'},
+          {name: '积分', txt: '674', dot: true},
         ]
       }
     },
@@ -247,6 +251,7 @@
         background: linear-gradient(135deg, #FFB917 0%, #FF9E17 100%);
         border-radius: 20px 0 0 20px;
         padding: 8px 12px;
+        font-size: 15.4px;
         color: white;
       }
       .user-icon {

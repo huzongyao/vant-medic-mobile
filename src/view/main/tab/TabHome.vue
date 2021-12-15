@@ -157,7 +157,7 @@
       }
       .city-txt {
         font-weight: 700;
-        font-size: 16px;
+        font-size: 17.6px;
       }
       .search-input {
         .search-swipe {
@@ -166,6 +166,7 @@
             text-overflow: ellipsis;
             height: 18px;
             line-height: 18px;
+            font-size: 16.5px;
             background: white;
           }
           height: 18px;
