@@ -5,6 +5,7 @@
 ### 详情
 
 #### 效果如下
+![image](https://huzongyao.github.io/vant-medic-mobile/static/img/mine/screen_show.png)
 
 #### 开始体验
 * 体验地址GitHub：https://huzongyao.github.io/vant-medic-mobile

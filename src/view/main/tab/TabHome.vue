@@ -48,6 +48,37 @@
         </div>
       </div>
     </div>
+    <!--粘性TAB标题栏-->
+    <van-sticky>
+      <div class="sub-tabs">
+        <div v-for="(it,idx) in tabTitles" :key="idx" class="sub-tab" @click="onSubTabChange(idx)">
+          <div :class="{'title-big':idx==subTabIndex}">{{it}}</div>
+          <div class="line-indicator" v-if="subTabIndex!=idx"></div>
+          <div class="line-indicator sub-indicator" v-if="subTabIndex==idx"></div>
+        </div>
+      </div>
+    </van-sticky>
+    <!--下方瀑布流-->
+    <van-list v-model="waterLoading" @load="loadWaterfall">
+      <div class="fall-con">
+        <div v-for="idx in 2" :key="idx" class="one-fall">
+          <div class="fall-card" v-for="(it, idx1) in waterfallList"
+               :key="idx1" v-if="(idx1%2)==(idx-1)">
+            <van-image :src="it.img" class="fall-img" fit="cover" radius="5px 5px 0 0"></van-image>
+            <div class="fall-txt-div">
+              <div class="fall-txt">{{it.txt}}</div>
+            </div>
+            <div class="fall-user">
+              <van-image :src="it.ava" round class="card-ava"></van-image>
+              <div class="fall-name flex1">{{it.name}}</div>
+              <van-icon :name="it.liked?'like':'like-o'" :color="it.liked?'red':''"
+                        @click="onLikeClick(it)"></van-icon>
+              <div class="like-num">{{it.like+it.liked}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </van-list>
     <!--弹窗广告-->
     <van-popup v-model="showPopupAd" style="background:transparent">
       <div class="popad-con">
@@ -69,6 +100,7 @@
     name: "tab-home",
     data() {
       return {
+        waterLoading: false,
         showPopupAd: false,
         searchList: ['光子嫩肤29.9', '核酸检测预约', '健康小镇-积分换豪礼', '就医经历', '隔夜菜会致癌吗？'],
         entryTwo: [
@@ -105,17 +137,29 @@
           {ic: 'entry_one_2.gif', txt: '体检', to: ''},
           {ic: 'entry_one_1.png', txt: '买药', to: ''},
         ],
-        //弹窗广告
         swipeAds: [
           {img: 'swipe_ad_1.gif', to: ''},
           {img: 'swipe_ad_2.jpg', to: ''},
-          // {img: 'swipe_ad_3.jpg', to: ''},
-          // {img: 'swipe_ad_4.png', to: ''},
-          // {img: 'swipe_ad_5.jpg', to: ''},
-          // {img: 'swipe_ad_6.png', to: ''},
-          // {img: 'swipe_ad_7.png', to: ''},
+          {img: 'swipe_ad_3.jpg', to: ''},
+          {img: 'swipe_ad_4.png', to: ''},
+          {img: 'swipe_ad_5.jpg', to: ''},
+          {img: 'swipe_ad_6.png', to: ''},
+          {img: 'swipe_ad_7.png', to: ''},
           {img: 'swipe_ad_8.png', to: ''},
           {img: 'swipe_ad_9.png', to: ''},
+        ],
+        tabTitles: ['推荐', '视频', '名医', '笔记', '科普'],
+        subTabIndex: 0,
+        waterfallList: [],
+        waterfallTxt: [
+          '激光碎石&体外碎石？！傻傻分不清楚',
+          '小孩容易出汗要不要紧？',
+          '宝宝指甲长#白斑是怎么回事？#科普',
+          '【润月雅水光补水】面膜+润月雅2ml补水、深层补水美白嫩肤、细致毛孔亮肤',
+          '车教授告诉你:不要轻视脂肪肝',
+          '抑郁症能不能好？多久才能好？',
+          '穴位埋线的治疗的疗效反应',
+          '抗癫痫药物的不良反应有哪些？',
         ],
       }
     },
@@ -125,10 +169,114 @@
         this.showPopupAd = true;
       }
     },
+    methods: {
+      onLikeClick(it) {
+        it.liked = 1 - it.liked;
+      },
+      loadWaterfall() {
+        setTimeout(() => {
+          for (let i = 0; i < 20; i++) {
+            let imgIdx = Math.floor(Math.random() * 30 + 1);
+            this.waterfallList.push({
+              img: `static/img/home/sns/sns_pic_${imgIdx}.jpg`,
+              txt: this.waterfallTxt[Math.floor(Math.random() * this.waterfallTxt.length)],
+              ava: 'static/img/mine/icon-user-def.png',
+              name: '阿东姑娘',
+              like: Math.floor(Math.random() * 10),
+              liked: 0,
+            });
+          }
+          this.waterLoading = false;
+        }, 1000);
+      },
+      onSubTabChange(idx) {
+        this.subTabIndex = idx;
+        this.waterfallList = [];
+        this.waterLoading = true;
+        this.loadWaterfall();
+      },
+    },
   }
 </script>
 
 <style scoped lang="less">
+  .fall-con {
+    .one-fall {
+      .fall-card {
+        .fall-user {
+          .like-num {
+            margin-left: 6px;
+            font-size: 15px;
+          }
+          .fall-name {
+            font-size: 13.2px;
+          }
+          .card-ava {
+            width: 18px;
+            height: 18px;
+            margin-right: 3px;
+          }
+          align-items: center;
+          display: flex;
+          color: #999999;
+          padding: 0 11px 13px 11px;
+        }
+        .fall-txt-div {
+          padding: 11px;
+        }
+        .fall-txt {
+          font-size: 14.3px;
+          font-weight: 700;
+          color: #333333;
+          -webkit-line-clamp: 2;
+          -moz-line-clamp: 2;
+          display: -webkit-box;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          -webkit-box-orient: vertical;
+          -moz-box-orient: vertical;
+          line-height: 17px;
+        }
+        .fall-img {
+          width: 100%;
+        }
+        border-radius: 5px;
+        margin-bottom: 10px;
+        background: white;
+      }
+      width: 50%;
+      padding: 5px;
+    }
+    display: flex;
+    padding: 5px;
+  }
+
+  .sub-tabs {
+    .sub-tab {
+      .sub-indicator {
+        background: #00C6B8;
+      }
+      .line-indicator {
+        border-radius: 3px;
+        width: 50%;
+        height: 6px;
+        display: inline-block;
+      }
+      .title-big {
+        font-size: 24px;
+      }
+      padding: 0 14px;
+      font-size: 17.6px;
+      color: #666666;
+      text-align: center;
+      font-weight: bold;
+    }
+    padding: 10px 0 3px 0;
+    display: flex;
+    background: white;
+    align-items: center;
+  }
+
   .top-bar {
     .card-div {
       .entry-card {
