@@ -29,6 +29,7 @@ const FactoryMain = r => _s() && require.ensure([], () => _d() && r(require('../
 const GuidePage = r => _s() && require.ensure([], () => _d() && r(require('../view/splash/GuidePage')), 'GuidePage');
 const MessageDetail = r => _s() && require.ensure([], () => _d() && r(require('../view/message/MessageDetail')), 'MessageDetail');
 const PhoneLogin = r => _s() && require.ensure([], () => _d() && r(require('../view/login/PhoneLogin')), 'PhoneLogin');
+const CitySelectPage = r => _s() && require.ensure([], () => _d() && r(require('../view/cities/CitySelectPage')), 'CitySelectPage');
 
 const routes = [
   {path: '*', redirect: 'SplashPage'},
@@ -42,6 +43,7 @@ const routes = [
       {name: 'mine', path: 'mine', component: TabMine, meta: {keepAlive: true}},
     ], meta: {keepAlive: true}
   },
+  {name: 'CitySelectPage', component: CitySelectPage},
   {name: 'PhoneLogin', component: PhoneLogin},
   {name: 'MessageDetail', component: MessageDetail},
   {name: 'GuidePage', component: GuidePage},

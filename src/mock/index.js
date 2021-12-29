@@ -1,7 +1,5 @@
 export default {
-
-
-
+  
   randomPng(size = 2) {
     const canvas = document.createElement('canvas');
     canvas.width = size;

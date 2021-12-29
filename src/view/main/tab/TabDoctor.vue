@@ -2,8 +2,8 @@
   <div>
     <div class="top-con" :style="{'background-image':'url(static/img/ask/ask_top.png)'}">
       <div class="flex top-text">
-        <div>广州</div>
-        <div class="down-arr">
+        <div @click="onLocationClick">{{userInfo.city||'成都'}}</div>
+        <div class="down-arr" @click="onLocationClick">
           <van-icon name="arrow-down"></van-icon>
         </div>
         <div>门诊大厅</div>
@@ -87,7 +87,11 @@
     },
     mounted() {
     },
-    methods: {},
+    methods: {
+      onLocationClick() {
+        this._routePush('CitySelectPage');
+      },
+    },
   }
 </script>
 

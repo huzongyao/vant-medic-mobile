@@ -2,8 +2,8 @@
   <div>
     <div class="top-bar">
       <div class="search-div">
-        <div>
-          <div class="city-txt">成都
+        <div @click="_routePush('CitySelectPage')">
+          <div class="city-txt">{{userInfo.city||'成都'}}
             <van-icon name="arrow-down"></van-icon>
           </div>
           <div class="weather-txt">22°C 晴</div>

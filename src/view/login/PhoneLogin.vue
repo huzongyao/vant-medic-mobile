@@ -61,6 +61,7 @@
           this._dismissLoading();
           let userInfo = {
             name: '前端君',
+            city: '成都',
             phone: this.loginInput.phone,
           };
           this.$store.commit('setUserInfo', userInfo);

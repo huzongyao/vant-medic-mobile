@@ -30,5 +30,6 @@
   #app {
     background-color: #f7f7f7;
     height: 100vh;
+    overflow-y: hidden;
   }
 </style>
