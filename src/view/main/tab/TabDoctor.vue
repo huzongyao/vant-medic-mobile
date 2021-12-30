@@ -11,7 +11,7 @@
     </div>
 
     <div class="search-con">
-      <div class="search-bar">
+      <div class="search-bar" @click="_routePush('SearchPage')">
         <van-icon name="search" size="20px"></van-icon>
         <div class="search-txt">1分钟快速问医生</div>
       </div>

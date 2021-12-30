@@ -8,7 +8,7 @@
           </div>
           <div class="weather-txt">22°C 晴</div>
         </div>
-        <div class="flex1 search-input">
+        <div class="flex1 search-input" @click="_routePush('SearchPage')">
           <van-icon name="search" size="18px"></van-icon>
           <van-swipe vertical :autoplay="3000" :show-indicators="false" class="search-swipe">
             <van-swipe-item v-for="(it,idx) in searchList" :key="idx">
@@ -323,7 +323,7 @@
         border: 2px solid #00C6B8;
         display: flex;
         align-items: center;
-        border-radius: 20px;
+        border-radius: 30px;
         margin: 0 10px;
         padding: 10px 10px;
         background: white;

@@ -30,6 +30,7 @@ const GuidePage = r => _s() && require.ensure([], () => _d() && r(require('../vi
 const MessageDetail = r => _s() && require.ensure([], () => _d() && r(require('../view/message/MessageDetail')), 'MessageDetail');
 const PhoneLogin = r => _s() && require.ensure([], () => _d() && r(require('../view/login/PhoneLogin')), 'PhoneLogin');
 const CitySelectPage = r => _s() && require.ensure([], () => _d() && r(require('../view/cities/CitySelectPage')), 'CitySelectPage');
+const SearchPage = r => _s() && require.ensure([], () => _d() && r(require('../view/search/SearchPage')), 'SearchPage');
 
 const routes = [
   {path: '*', redirect: 'SplashPage'},
@@ -37,14 +38,15 @@ const routes = [
   {
     name: 'main', redirect: '/main/home', component: MainPage,
     children: [
-      {name: 'home', path: 'home', component: TabHome, meta: {keepAlive: true}},
-      {name: 'doctor', path: 'doctor', component: TabDoctor, meta: {keepAlive: true}},
-      {name: 'message', path: 'message', component: TabMessage, meta: {keepAlive: true}},
-      {name: 'mine', path: 'mine', component: TabMine, meta: {keepAlive: true}},
+      {name: 'home', path: 'home', component: TabHome, meta: {keepAlive: true, title: '首页'}},
+      {name: 'doctor', path: 'doctor', component: TabDoctor, meta: {keepAlive: true, title: '问医生'}},
+      {name: 'message', path: 'message', component: TabMessage, meta: {keepAlive: true, title: '消息'}},
+      {name: 'mine', path: 'mine', component: TabMine, meta: {keepAlive: true, title: '我的'}},
     ], meta: {keepAlive: true}
   },
-  {name: 'CitySelectPage', component: CitySelectPage},
-  {name: 'PhoneLogin', component: PhoneLogin},
+  {name: 'SearchPage', component: SearchPage, meta: {title: '健康搜索'}},
+  {name: 'CitySelectPage', component: CitySelectPage, meta: {title: '选择地址'}},
+  {name: 'PhoneLogin', component: PhoneLogin, meta: {title: '手机号登录'}},
   {name: 'MessageDetail', component: MessageDetail},
   {name: 'GuidePage', component: GuidePage},
   {name: 'FactoryMain', component: FactoryMain},
@@ -66,6 +68,11 @@ router.beforeEach((to, from, next) => {
 
 //生命周期之后
 router.afterEach((to, from) => {
+  if (to.meta.title) {
+    document.title = to.meta.title;
+  } else {
+    document.title = '就医挂号(让健康更简单)';
+  }
   // 滑动到顶吧
   window.scrollTo(0, 0);
 });
