@@ -31,6 +31,7 @@ const MessageDetail = r => _s() && require.ensure([], () => _d() && r(require('.
 const PhoneLogin = r => _s() && require.ensure([], () => _d() && r(require('../view/login/PhoneLogin')), 'PhoneLogin');
 const CitySelectPage = r => _s() && require.ensure([], () => _d() && r(require('../view/cities/CitySelectPage')), 'CitySelectPage');
 const SearchPage = r => _s() && require.ensure([], () => _d() && r(require('../view/search/SearchPage')), 'SearchPage');
+const HealthTown = r => _s() && require.ensure([], () => _d() && r(require('../view/game/HealthTown')), 'HealthTown');
 
 const routes = [
   {path: '*', redirect: 'SplashPage'},
@@ -45,6 +46,7 @@ const routes = [
     ], meta: {keepAlive: true}
   },
   {name: 'SearchPage', component: SearchPage, meta: {title: '健康搜索'}},
+  {name: 'HealthTown', component: HealthTown, meta: {title: '健康小镇'}},
   {name: 'CitySelectPage', component: CitySelectPage, meta: {title: '选择地址'}},
   {name: 'PhoneLogin', component: PhoneLogin, meta: {title: '手机号登录'}},
   {name: 'MessageDetail', component: MessageDetail},

@@ -16,7 +16,7 @@
             </van-swipe-item>
           </van-swipe>
         </div>
-        <div>
+        <div @click="_routePush('HealthTown')">
           <van-icon name="static/img/home/signin-gif-04.gif" size="44px"></van-icon>
         </div>
       </div>
